@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { X, Sparkles } from 'lucide-react'
 
 const effects = {
-  wheel: 'result-rings',
+  wheel: 'result-rays',
   ball: 'result-bubbles',
   slot: 'result-rays',
   card: 'result-confetti',
