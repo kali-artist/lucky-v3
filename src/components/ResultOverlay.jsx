@@ -10,7 +10,7 @@ const effects = {
 }
 
 export default function ResultOverlay({ prize, module, onClose }) {
-  const sparkles = useMemo(() => Array.from({ length: 60 }, (_, index) => index), [prize?.id])
+  const sparkles = useMemo(() => Array.from({ length: 30 }, (_, index) => index), [prize?.id])
   if (!prize) return null
   return (
     <div className={`result-overlay ${effects[module.id] ?? 'result-confetti'}`} style={{ '--accent': module.accent, '--accent-2': module.accent2 }}>
