@@ -89,9 +89,9 @@ input, textarea { outline: none; }
 .wheel { position: relative; width: 304px; height: 304px; border-radius: 50%; border: 2px solid #ffffff4a; overflow: hidden; box-shadow: 0 16px 40px #0008, inset 0 0 0 4px #00000040; transition: transform 4.2s cubic-bezier(.17,.67,.28,1); }
 .wheel.is-spinning { transition-timing-function: cubic-bezier(.14,.74,.18,1); }
 .wheel-glass { position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, #ffffff33 0%, transparent 38%), radial-gradient(circle at 70% 75%, #00000050 0%, transparent 50%); border-radius:50%; pointer-events:none; }
-.wheel-label { position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:11px; font-weight:700; text-shadow:0 1px 2px #000a; }
-.wheel-label span { display:flex; align-items:center; gap:5px; padding-top:18px; }
-.wheel-label i { font-style:normal; font-size:14px; }
+.wheel-label { position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:12px; font-weight:700; text-shadow:0 1px 3px #000, 0 0 8px #000a; pointer-events:none; }
+.wheel-label span { display:flex; align-items:center; gap:4px; transform: translateY(-72px) rotate(90deg); white-space: nowrap; }
+.wheel-label i { font-style:normal; font-size:15px; }
 .wheel-center { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:54px; height:54px; border-radius:50%; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg, color-mix(in srgb, var(--accent) 60%, white), color-mix(in srgb, var(--accent-2) 35%, #161928)); box-shadow:0 0 22px color-mix(in srgb, var(--accent) 50%, transparent), inset 0 1px #ffffff80; }
 
 /* ========================== Ball ========================== */
@@ -226,11 +226,29 @@ input, textarea { outline: none; }
 /* result-bubbles – floating bubbles rising */
 .result-bubbles .result-effect i { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #ffffff80, color-mix(in srgb, var(--accent) 60%, transparent) 60%, transparent); border: 1px solid #ffffff30; margin: 0; animation: bubbles 5s linear infinite; animation-delay: calc(var(--i) * -.15s); }
 
-/* result-rays – radial light beams */
-.result-rays .result-effect i { width: 2px; height: 0; background: linear-gradient(180deg, transparent, var(--accent), transparent); transform-origin: 50% 100%; animation: rays 4s ease-out infinite; animation-delay: calc(var(--i) * -.07s); }
+/* result-rays – full-screen radial light beams */
 .result-rays { background: radial-gradient(circle at center, color-mix(in srgb, var(--accent-2) 20%, #070914) 0%, #070914 75%); }
-.result-rays .result-effect { background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--accent) 25%, transparent) 4deg, transparent 8deg); animation: rotate 18s linear infinite; }
-.result-rays .result-effect i { background: linear-gradient(180deg, transparent, var(--accent-2), transparent); }
+.result-rays .result-effect {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.result-rays .result-effect i {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 3px; height: 55vmax;
+  background: linear-gradient(180deg, transparent 0%, var(--accent) 40%, var(--accent-2) 70%, transparent 100%);
+  transform-origin: 50% 0%;
+  animation: rays 2.8s ease-out infinite;
+  animation-delay: calc(var(--i) * 0.06s);
+  opacity: 0;
+}
+.result-rays .result-effect::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  width: 90vmin; height: 90vmin;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg, transparent 0deg, color-mix(in srgb, var(--accent) 18%, transparent) 5deg, transparent 10deg, color-mix(in srgb, var(--accent-2) 18%, transparent) 15deg, transparent 20deg);
+  animation: rotate 12s linear infinite;
+  border-radius: 50%;
+}
 
 /* result-confetti – paper confetti falling */
 .result-confetti .result-effect i { width: 12px; height: 16px; background: var(--accent); margin: 0; animation: confetti 3.6s linear infinite; animation-delay: calc(var(--i) * -.1s); box-shadow: 0 0 12px var(--accent); }
