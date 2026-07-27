@@ -1,0 +1,13 @@
+# Cloudflare Pages project configuration
+# Usage: `npx wrangler pages deploy ./dist --project-name lucky-v3`
+# Or wire it up under the Pages dashboard by pointing Build command to `npm run build`
+# and Build output directory to `dist`.
+
+name = "lucky-v3"
+compatibility_date = "2025-04-01"
+pages_build_output_dir = "./dist"
+
+[build]
+command = "npm run build"
+
+# Custom routes — the SPA fallback is also handled via /public/_redirects for parity with Git-based deploys.
