@@ -5,7 +5,7 @@ const effects = {
   wheel: 'result-rays',
   ball: 'result-bubbles',
   slot: 'result-rays',
-  card: 'result-confetti',
+  card: 'result-bubbles',
   firework: 'result-firework',
 }
 
