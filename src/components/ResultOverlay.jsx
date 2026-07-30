@@ -15,6 +15,7 @@ export default function ResultOverlay({ prize, module, onClose }) {
   return (
     <div className={`result-overlay ${effects[module.id] ?? 'result-confetti'}`} style={{ '--accent': module.accent, '--accent-2': module.accent2 }}>
       <button className="result-close" onClick={onClose} aria-label="关闭结果"><X size={20} /></button>
+      <div className="result-orb" aria-hidden="true" />
       <div className="result-effect" aria-hidden="true">
         {sparkles.map((index) => <i key={index} style={{ '--i': index }} />)}
       </div>
