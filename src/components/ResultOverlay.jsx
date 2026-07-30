@@ -4,8 +4,8 @@ import { X, Sparkles } from 'lucide-react'
 const effects = {
   wheel: 'result-rays',
   ball: 'result-bubbles',
-  slot: 'result-rays',
-  card: 'result-bubbles',
+  slot: 'result-confetti',
+  card: 'result-rings',
   firework: 'result-firework',
 }
 
