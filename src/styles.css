@@ -539,10 +539,10 @@ tbody tr.is-disabled b { color: #a3a8b6; text-decoration: line-through; text-dec
 @keyframes bubbles { 0% { transform: translate(calc((var(--i) - 30) * 2vw), 55vh) scale(.3); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(calc((var(--i) - 30) * 3vw), -60vh) scale(2); opacity: 0; } }
 @keyframes sparks { 0% { transform: rotate(calc(var(--i)*10deg)) translateX(40px); opacity: 1; } 100% { transform: rotate(calc(var(--i)*10deg)) translateX(58vw); opacity: 0; } }
 @keyframes raysBurst {
-  0%   { transform: scaleX(0.05) scaleY(0.1); opacity: 0; }
-  15%  { transform: scaleX(1.2)  scaleY(0.5);  opacity: 1; }
-  50%  { transform: scaleX(1.0)  scaleY(1.0);  opacity: 1; }
-  100% { transform: scaleX(0.8)  scaleY(1.3);  opacity: 0; }
+  0%   { transform: rotate(calc(var(--i) * 12deg)) scaleX(0.05) scaleY(0.1); opacity: 0; }
+  15%  { transform: rotate(calc(var(--i) * 12deg)) scaleX(1.2)  scaleY(0.5);  opacity: 1; }
+  50%  { transform: rotate(calc(var(--i) * 12deg)) scaleX(1.0)  scaleY(1.0);  opacity: 1; }
+  100% { transform: rotate(calc(var(--i) * 12deg)) scaleX(0.8)  scaleY(1.3);  opacity: 0; }
 }
 
 @keyframes orbPulse {
